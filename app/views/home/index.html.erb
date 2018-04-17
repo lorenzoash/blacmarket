@@ -1,0 +1,24 @@
+<h1> Items for Sale </h1>
+
+
+<% @items.each do |item|%>
+    <div class ="well">
+        <div class="row">
+           
+                <h3><%= item.title%></h3>
+        </div>
+        
+            <div class="pull-right">
+            <%= form_for(@line_item) do |f|%>
+                <%= f.hidden_field :item_id, value: item.id %>
+                <h5><%= item.price %></h5>
+                <div class="form-group">
+                    <%= f.text_field :quantity, value: 1, min: 1, class: "form-control" %>
+                </div>
+                <%= f.submit "Add to cart", class: 'btn btn-primary btn-sm'%>
+                <% end %>
+                </div>
+            </div>    
+        </div>    
+    </div>
+<% end %>
