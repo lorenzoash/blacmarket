@@ -6,15 +6,6 @@
 
 
 <% end %>
-
-<div class="col-md-6 col-md-offset-3">
-    <table class ="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Price</th>
-             </tr>
-        </thead>
         <tbody>  
          <% @line_item.each do |product|%>
             <% if @line_item.size > 0%>
@@ -30,8 +21,7 @@
                  </tr>
                     <% end %>
                 </tbody>
-             </table>
-            </div>
+             
         <% end %>
 <% end %>
 
