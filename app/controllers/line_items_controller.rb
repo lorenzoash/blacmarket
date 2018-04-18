@@ -5,20 +5,23 @@ class LineItemsController < ApplicationController
         @line_item = @order.line_items.new(line_item_params)
         @order.save
         session[:order_id] = @order.id
+        redirect_to carts_path
     end
-
+    
     def update 
         @order = current_order
         @line_item = @order.line_items.find(params[:id])
         @line_item.update_attributes(line_item_params)
         @line_item = @order.line_items
+        redirect_to carts_path
     end
-
+    
     def destroy
         @order = current_order
         @line_item = @order.line_items.find(params[:id])
         @line_item.destroy
         @line_item = @order.line_items 
+        redirect_to carts_path
     end
 
     private 

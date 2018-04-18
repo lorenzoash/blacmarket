@@ -1,8 +1,27 @@
+<H1>BlacMarket</h1>
+
 </br>
 <%=link_to "All Posts", root_path%>
 <%= link_to "New Posts", items_new_path%>
 
+<%= form_for(@item) do |f|%>
+
+    <p><%= @item.title %></p>
+    <p><%= image_tag @item.image.url%></p>
+    <p><%= @item.content%></p>
+    <p>
+        <%= @item.likes%> <%= @item.price%>
+    </p>
+    
+
+<% end %>
+
+<div class ="add_cart_show"><%= form_for(@line_item) do |f|%>
+    <%= f.hidden_field :item_id, value: @item.id %>
+    <%= f.hidden_field :quantity, value: 1, min: 1, class: "form-control" %>
+    <%= f.submit "Add to cart", class: 'btn btn-primary btn-sm'%>   
+    </div>
+<% end %>
 
 
-<p><%= @item.title %></p>
 

@@ -6,24 +6,45 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
   </head>
 
   <body>
   <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
         <div class="container">
-          <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
-                    <%= link_to "Home", root_path %>
+              <li class="nav-item">
+                <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> <span class="badge">4</span></a>
+
+
+              </li>
+              <li class="nav-item">
+                <%= link_to "Home", root_path %>
                   </li>
-                  </ul>
-                 <ul>
-                  <li class="active"><%= link_to "#{current_order.line_items.size} items in cart and price #{current_order.subtotal}", carts_path%> </li>
-                </ul>
+                <li class="nav-item">
+                   <%= link_to "About", root_path %>
+                  </li>
+                  <li class="nav-item">
+                      <%= link_to "Contact", root_path %>
+                  </li class="nav-item">
+                  
+                  <li class="nav-item"><%= link_to "#{current_order.total_quantity} items in cart and price #{current_order.subtotal}", carts_path%>
+                   </li>
+                     <p>
+                <% if current_user %> Welcome, <%= current_user.name %>
+                       &nbsp;&nbsp;|&nbsp;&nbsp;
+                            <%= link_to 'Log Out', session_path('dummy'), method: :delete %>
+                <% else %>
+                      <%= link_to 'Log In', login_path %>
+                         &nbsp;&nbsp;|&nbsp;&nbsp;
+                        <%= link_to 'Create Account', new_user_path %>
+                        </p>
+                   <% end %>
+              </ul>
 
               <form class="form-inline my-2 my-lg-0">
                 <input type="text" class="form-control mr-sm-2" placeholder="Search">
@@ -31,28 +52,8 @@
               </form>
             </div>
           </div>
-    </nav>
-
-            
-  <center>
- 
-
-   <p>
-  <% if current_user %>
-    Welcome, <%= current_user.name %>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <%= link_to 'Log Out', session_path('dummy'), method: :delete %>
-     
-  <% else %>
-    <%= link_to 'Log In', login_path %>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <%= link_to 'Create Account', new_user_path %>
-    
-   
-  <% end %>
-</p>
-</center>
-<div class="container">
+    </nav>             
+    <div class="container">
     <%= yield %>
     </div>
   </body>

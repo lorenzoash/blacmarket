@@ -5,9 +5,10 @@ Rails.application.routes.draw do
  get 'items/:id', to: 'items#show', as: :item
  resources :items 
  resources :line_items
- resource :carts, only: [:show]
+ resource :carts, only: [:show, :index]
  resources :users, only: [:new, :create]
  resources :sessions, only: [:new, :create, :destroy]
  get '/login', to: 'sessions#new'
  get 'logout', to: 'sessions#destroy'
+
 end
