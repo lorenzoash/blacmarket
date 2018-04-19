@@ -13,16 +13,25 @@ User.create({ name: "Lorenzo", email: "email@email.com", location: "Los Angeles,
 
 Item.create([
     {
-        content: "Lorem ipsum", 
+        content: "The YEEZY Runner aka the YEEZY Calabasas Runner is the unofficial name of a new sneaker 
+        designed by Kanye West. 
+        It is unlike the Yeezy Boost models in that the shoe has a much more technical design and is loosely 
+        inspired by the adidas Osweego line of the 1990s. The Yeezy Runner was officially unveiled as part of the 
+        Yeezy Season 5 show on February 15th, 2017.", 
         likes: 6, 
-        price: 120.99,
-        title: "Shoes"
+        price: 420.99,
+        title: "Yeezy Runner 700",
+        image: File.new(File.join(Rails.root, “public”, “seedimages”, “yeezyrunner.jpg”)),
+        
     }, 
     {
-        content: "Vivamus nibh ipsum, malesuada nec pretium vel, tempus a lorem", 
+        content: "With a flexible Flyknit upper placed directly atop a radically reinvented Air
+        cushioning system Nike Air VaporMax not only defies convention,
+        it delivers a sensation underfoot that seems to defy gravity.", 
         likes: 9, 
-        price: 5.00, 
-        title: "Poo Sauce"
+        price: 215.00, 
+        title: "Air Vapormax Flyknit 2"
+        image: File.new(File.join(Rails.root, “public”, “seedimages”, “Nike_Vapors.jpg”)),
     }
 ])
 
