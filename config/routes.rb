@@ -8,7 +8,8 @@ Rails.application.routes.draw do
  resource :carts, only: [:show, :index]
  resources :users, only: [:new, :create]
  resources :sessions, only: [:new, :create, :destroy]
+ resources :charges
  get '/login', to: 'sessions#new'
  get 'logout', to: 'sessions#destroy'
-
+ 
 end

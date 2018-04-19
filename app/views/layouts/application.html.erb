@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav mr-auto">
-              <h1><%= link_to "BlacMarket", root_path %> </h1>
+              <h1><%= link_to "BlacMarket", root_path %></h1> 
               <li class="nav-item">
                  <% if current_user %> Welcome, <%= current_user.name %>
                        &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -26,9 +26,10 @@
                               <%= link_to 'Sign In', login_path %>
                                  &nbsp;&nbsp;|&nbsp;&nbsp;
                                     <%= link_to 'Sign Up', new_user_path %>
+                                    <div class="fas fa-shopping-cart"></div>
                         <% end %>
                </li>
-                <li class="nav-item"><%= link_to "#{current_order.total_quantity} items in cart and price #{current_order.subtotal}", carts_path%>
+                <li class="nav-item"><%= link_to "#{current_order.total_quantity} items total price $#{current_order.subtotal}", carts_path%>
                    </li>
                     </ul><form class="form-inline my-2 my-lg-0">
                 <input type="text" class="form-control mr-sm-2" placeholder="Search">

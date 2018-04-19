@@ -1,6 +1,5 @@
 
 
-<h1>BlacMarket</h1>
 
 <%= link_to  "New Item", items_new_path %>
 
@@ -19,13 +18,14 @@
                 <tr>
                     <td><%= item.title%></td>
                     <td><%= item.price %></td>
-                    <td><%= item.likes%></td>
+                    
                     <td><%= item.created_at %></td>
                 
                     <td>
+                        <% if @item.user.id = current_user.id%>
                         <%= link_to "Edit", edit_item_path(item)%>
                         <%= link_to "Delete", item_path(item), method: :delete %>
-
+                    
                     </td>    
                 </tr>
             <% end %>

@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+    before_action :authorize
     
     def index
         @items = Item.all
@@ -25,14 +26,18 @@ class ItemsController < ApplicationController
 
     def edit
         @item = Item.find(params[:id])
+        
+        
+     
     end
 
     def update
         @item = Item.find(params[:id])
         if @item.update_attributes(item_params)
+            flash[:success] = "Saved!"
             redirect_to root_path
         else
-            render :show
+            render :edit
         end
     end
 
@@ -49,4 +54,9 @@ class ItemsController < ApplicationController
         redirect_to item_path(@item)
     end
 
+    private 
+    def item_params
+        params.require(:item).permit( :price, :content, :image, :title)
+    end
+    
 end

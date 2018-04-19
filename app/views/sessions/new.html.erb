@@ -4,7 +4,7 @@
 <p id="alert"><%= alert %></p>
 <%= form_tag sessions_path do %>
  <div class="field">
-    <%= label_tag :email %>
+    <%= label_tag :email, nil, class: 'email' %>
     <%= text_field_tag :email, params[:email] %>
   </div></br>
   <div class="field">

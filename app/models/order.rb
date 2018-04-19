@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   before_save :set_subtotal
   belongs_to :user
 
+
   def subtotal
     line_items.collect {|line_item| line_item.valid? ? (line_item.unit_price*line_item.quantity) : 0 }.sum
   end
