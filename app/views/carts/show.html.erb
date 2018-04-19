@@ -14,7 +14,9 @@
                     <%= form_for(product, remote: true) do |f|%>
                     <td><%= f.hidden_field :item_id, value: product.item.id %></td>
                     <td><%= product.item.price %></td>
-                    <td><%= f.text_field :quantity, value: product.quantity.to_i, min: 1, class: 'form-control' %></td>
+                    <td>
+                    <%= f.text_field :quantity, value: product.quantity.to_i, min: 1, class: 'col-sm-1 form-control' %>  
+                    </td>
                     <td><%= f.submit "Update Quantity", class: 'btn btn-primary' %></td>
                     <td><%= link_to "Delete", product, method: :delete, remote: true, class: 'btn btn-danger'%></td>
                     <span>Total Price: <%= product.order.subtotal %></span>
