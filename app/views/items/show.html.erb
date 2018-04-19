@@ -18,7 +18,7 @@
 
 <div class ="add_cart_show"><%= form_for(@line_item) do |f|%>
     <%= f.hidden_field :item_id, value: @item.id %>
-    <%= f.hidden_field :quantity, value: 1, min: 1, class: "form-control" %>
+    <%= f.hidden_field :quantity, value: @line_item.quantity.to_i, min: 1, class: "form-control" %>
     <%= f.submit "Add to cart", class: 'btn btn-primary btn-sm'%>   
     </div>
 <% end %>

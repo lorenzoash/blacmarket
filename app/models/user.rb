@@ -6,6 +6,12 @@ class User < ApplicationRecord
     has_many :orders, dependent: :destroy
     
     def cart
+        cart = self.orders.find_by(paid: false)
+        if cart 
+            cart
+        else
+            Order.create(user: self)
+        end
     end
     
 end

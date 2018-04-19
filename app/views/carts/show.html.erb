@@ -1,31 +1,25 @@
-<% if !@line_items.nil? && @order_items.errors.any? %>
 
-    <% @line_items.errors.full_messsags.each do |msg|%>
-        <%= msg%>
-    <% end %>
-
-
-<% end %>
+    <table>
         <tbody>  
-         <% @line_item.each do |product|%>
-            <% if @line_item.size > 0%>
-                <tr>
-                    <td><%= product.item.title%></td>
-                    <%= form_for(product, remote: true) do |f|%>
-                    <td><%= f.hidden_field :item_id, value: product.item.id %></td>
-                    <td><%= product.item.price %></td>
-                    <td>
-                    <%= f.text_field :quantity, value: product.quantity.to_i, min: 1, class: 'col-sm-1 form-control' %>  
-                    </td>
-                    <td><%= f.submit "Update Quantity", class: 'btn btn-primary' %></td>
-                    <td><%= link_to "Delete", product, method: :delete, remote: true, class: 'btn btn-danger'%></td>
-                    <span>Total Price: <%= product.order.subtotal %></span>
-                 </tr>
-                 
-                    <% end %>
-                </tbody>
-             
-        <% end %>
-<% end %>
+            <% @line_items.each do |product| %>
+                    <tr>
+                        <td><%= product.item.title  %></td>
+                        
+                        <tr>
+                            <%= form_for product do |f|%>
+                                <%= f.hidden_field :item_id, value: product.item.id %>
+                                <%= product.item.price %>
+                                <%= f.text_field :quantity, value: product.quantity.to_i, min: 1, class: 'col-sm-1 form-control' %>
+                                <%= f.submit "Update Quantity", class: 'btn btn-primary' %>
+                            <% end %>
+                        </tr>
+                        <td><%= link_to "Delete", product, method: :delete, remote: true, class: 'btn btn-danger'%></td>
+                    </tr>
+            <% end %>
+            <tr>
+                <td colspan="3">Total Price: <%= @line_items.count > 0 ? @line_items.collect {|line_item| line_item.valid? ? (line_item.unit_price*line_item.quantity) : 0 }.sum : 'No Items Ordered' %></td>
+            </tr>
+        </tbody>
+    </table>
 
 

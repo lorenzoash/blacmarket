@@ -49,4 +49,8 @@
   }
 
 
-  
+  #qty-count {
+    top: -11px;
+    position: relative;
+    left: -5px;
+  }

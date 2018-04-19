@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
     def show
-        @line_item = current_order.line_items
+        @line_items = current_user.cart.line_items
     end
+
 end
