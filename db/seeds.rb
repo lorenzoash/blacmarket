@@ -26,4 +26,4 @@ Item.create([
     }
 ])
 
-# User.first.orders << Order.new({ paid: false, subtotal: 125.99, total: 100.00, tax: 12.25 })
+User.first.orders << Order.new({ paid: false, subtotal: 125.99, total: 100.00, tax: 12.25 })
