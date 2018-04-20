@@ -1,5 +1,5 @@
 
-    <table>
+    <table id="cart-table">
         <tbody>  
             <% @line_items.each do |product| %>
             
@@ -11,15 +11,15 @@
                                 <td><%= f.hidden_field :item_id, value: product.item.id %></td>
                                 
                                 <td><%= f.text_field :quantity, value: product.quantity.to_i, min: 1, class: 'col-sm-7 form-control' %></td>
-                                <td><%= product.item.price %></td>
-                                <td><%= f.submit "Update Quantity", class: 'btn btn-primary' %></td>
+                                <td class="money"><%= sprintf("$%.2f", product.item.price) %></td>
+                                <td class="update"><%= f.submit "Update Quantity", class: 'btn btn-primary' %></td>
                             <% end %>
                         
                         <td><%= link_to "Delete", product, method: :delete, remote: true, class: 'btn btn-danger'%></td>
                     </tr>
             <% end %>
             <tr>
-                <td colspan="3">Total Price: <%= @line_items.count > 0 ? @line_items.collect {|line_item| line_item.valid? ? (line_item.unit_price*line_item.quantity) : 0 }.sum : 'No Items Ordered' %></td>
+                <td colspan="4">Total Price:&nbsp;&nbsp; <%= @line_items.count > 0 ? sprintf("$%.2f", @line_items.collect {|line_item| line_item.valid? ? (line_item.unit_price*line_item.quantity) : 0 }.sum) : 'No Items Ordered' %></td>
             </tr>
         </tbody>
     </table>

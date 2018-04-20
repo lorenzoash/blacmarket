@@ -66,3 +66,25 @@
   #navbarNav h1 {
     width: 200px;
   }
+
+  #cart-table td:first-child {
+    width: 33%;
+  }
+
+  #cart-table td.money {
+    text-align: right;
+  }
+
+  #cart-table td.update {
+    text-align: right;
+  }
+
+  #cart-table tr:last-child td {
+    height: 100px;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  #cart-table {
+    margin-top: 75px;
+  }

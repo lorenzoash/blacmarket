@@ -10,7 +10,7 @@
     <p><%= image_tag @item.image.url%></p>
     <p><%= @item.content%></p>
     <p>
-     <%= @item.price%>
+     <%= sprintf("$%.2f", @item.price)%>
     </p>
     
 
