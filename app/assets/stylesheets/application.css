@@ -38,7 +38,7 @@
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     font-style: italic;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
     margin-right: 70px;
   }
 
@@ -48,9 +48,21 @@
   
   }
 
+  .login {
+    margin-top: 100px;
+    margin-left: 60px;
+  }
 
   #qty-count {
     top: -11px;
     position: relative;
     left: -5px;
+  }
+
+  .create_account {
+    margin-left: 50px;
+  }
+
+  #navbarNav h1 {
+    width: 200px;
   }

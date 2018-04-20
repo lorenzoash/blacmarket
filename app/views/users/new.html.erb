@@ -1,6 +1,7 @@
 <center>
-
+<div class="create_account">
 <h1>Create Account</h1>
+</div>
   <% if @user.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
@@ -29,6 +30,6 @@
     <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %>
   </div> 
   </br>
-  <div class="actions"><%= submit_tag "Create" %></div>
+  <div class="actions"><%= submit_tag "Create", class: "btn btn-outline-danger" %></div>
   </center>
 <% end %>
