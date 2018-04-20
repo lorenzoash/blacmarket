@@ -19,8 +19,10 @@
           <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <% if current_user %><span class="text-warning">Welcome, <%= current_user.name %></span>
-              &nbsp;&nbsp;|&nbsp;&nbsp;
-              <%= link_to 'Manage Items', items_path, class: "text-danger" if current_user.admin %>
+              <% if current_user.admin %>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <%= link_to 'Manage Items', items_path, class: "text-danger" %>
+              <% end %>
               &nbsp;&nbsp;|&nbsp;&nbsp;
               <%= link_to 'Log Out', session_path('dummy'), method: :delete, class: "text-danger" %>
             <% else %>
